@@ -1,0 +1,867 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="三、浏览器工作原理浏览器的组成 人机交互部分（UI） 网络请求部分（Socket） JavaScript引擎部分（解析执行JavaScript） 渲染引擎部分（渲染HTML、CSS等） 数据存储部分（cookie、HTML5提出的LocalStorage、SessionStorage）  主流渲染引擎介绍 1、渲染引擎 又叫 排版引擎 或 浏览器内核, 主流的 渲染引擎 有：  Chrome: B">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node1">
+<meta property="og:url" content="http://LLFamilly.github.io/2017/04/21/node1/index.html">
+<meta property="og:site_name" content="MyBlog">
+<meta property="og:description" content="三、浏览器工作原理浏览器的组成 人机交互部分（UI） 网络请求部分（Socket） JavaScript引擎部分（解析执行JavaScript） 渲染引擎部分（渲染HTML、CSS等） 数据存储部分（cookie、HTML5提出的LocalStorage、SessionStorage）  主流渲染引擎介绍 1、渲染引擎 又叫 排版引擎 或 浏览器内核, 主流的 渲染引擎 有：  Chrome: B">
+<meta property="og:image" content="http://llfamilly.github.io/2017/04/21/node1/imgs/flow.png">
+<meta property="og:image" content="http://llfamilly.github.io/2017/04/21/node1/imgs/webkitflow.png">
+<meta property="og:image" content="http://llfamilly.github.io/2017/04/21/node1/imgs/gecko.jpg">
+<meta property="og:image" content="http://llfamilly.github.io/2017/04/21/node1/imgs/taobao_url.png">
+<meta property="og:image" content="http://llfamilly.github.io/2017/04/21/node1/imgs/taobao_ip.png">
+<meta property="og:image" content="http://llfamilly.github.io/2017/04/21/node1/imgs/node-modules.png">
+<meta property="og:updated_time" content="2017-04-21T14:38:08.237Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="node1">
+<meta name="twitter:description" content="三、浏览器工作原理浏览器的组成 人机交互部分（UI） 网络请求部分（Socket） JavaScript引擎部分（解析执行JavaScript） 渲染引擎部分（渲染HTML、CSS等） 数据存储部分（cookie、HTML5提出的LocalStorage、SessionStorage）  主流渲染引擎介绍 1、渲染引擎 又叫 排版引擎 或 浏览器内核, 主流的 渲染引擎 有：  Chrome: B">
+<meta name="twitter:image" content="http://llfamilly.github.io/2017/04/21/node1/imgs/flow.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://LLFamilly.github.io/2017/04/21/node1/"/>
+
+
+
+
+
+  <title> node1 | MyBlog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">MyBlog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-search">
+          <a href="/search" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-search"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/aboutMe" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://LLFamilly.github.io/2017/04/21/node1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LL">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MyBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                node1
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-21T22:28:26+08:00">
+                2017-04-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="三、浏览器工作原理"><a href="#三、浏览器工作原理" class="headerlink" title="三、浏览器工作原理"></a>三、浏览器工作原理</h1><h2 id="浏览器的组成"><a href="#浏览器的组成" class="headerlink" title="浏览器的组成"></a>浏览器的组成</h2><ul>
+<li>人机交互部分（UI）</li>
+<li>网络请求部分（Socket）</li>
+<li><strong>JavaScript引擎部分</strong>（解析执行JavaScript）</li>
+<li><strong>渲染引擎部分</strong>（渲染HTML、CSS等）</li>
+<li>数据存储部分（cookie、HTML5提出的LocalStorage、SessionStorage）</li>
+</ul>
+<h2 id="主流渲染引擎介绍"><a href="#主流渲染引擎介绍" class="headerlink" title="主流渲染引擎介绍"></a>主流渲染引擎介绍</h2><blockquote>
+<p>1、<strong>渲染引擎</strong> 又叫 <strong>排版引擎</strong> 或 <strong>浏览器内核</strong>, 主流的 <strong>渲染引擎</strong> 有：</p>
+<ul>
+<li><strong>Chrome</strong>: Blink引擎（WebKit的一个分支）。</li>
+<li><strong>Safari</strong>: WebKit引擎，windows版本2008年3月18日推出正式版，但苹果已于2012年7月25日停止开发Windows版的Safari。</li>
+<li><strong>FireFox</strong>: Gecko引擎。</li>
+<li><strong>Opera</strong>: Blink引擎(早期版使用Presto引擎）。</li>
+<li><strong>Internet Explorer</strong>: Trident引擎。</li>
+<li><strong>Microsoft Edge</strong>: EdgeHTML引擎（Trident的一个分支）。</li>
+</ul>
+<p>2、主流渲染引擎工作原理</p>
+<ol>
+<li>解析HTML构建Dom树（Document Object Model，文档对象模型），是W3C组织推荐的处理可扩展置标语言的标准编程接口。</li>
+<li>构建<em>渲染树</em>，<em>渲染树</em>并不等同于<em>Dom树</em>，因为像<code>head 或 display: none</code>这样的元素就没有必要放到<em>渲染树</em>中了，但是它们在<em>Dom树</em>中。</li>
+<li>对<em>渲染树</em>进行布局，定位坐标和大小、确定是否换行、确定position、overflow、z-index等等，这个过程叫<code>&quot;layout&quot; 或 &quot;reflow&quot;</code>。</li>
+<li>绘制<em>渲染树</em>，调用操作系统底层API进行绘图操作。</li>
+</ol>
+<p>3、<strong>渲染引擎工作原理</strong><br><img src="imgs/flow.png" alt="渲染引擎工作原理"></p>
+<p> 4、<strong>WebKit工作原理（Chrome、Safari、Opera）</strong><br> <img src="imgs/webkitflow.png" alt="Blink渲染引擎工作原理"></p>
+<p> 5、<strong>Gecko工作原理（FireFox）</strong><br> <img src="imgs/gecko.jpg" alt="Gecko渲染引擎工作原理"></p>
+<p>6、浏览器reflow、layout过程：<a href="https://www.youtube.com/watch?v=ZTnIxIA5KGw" target="_blank" rel="external">https://www.youtube.com/watch?v=ZTnIxIA5KGw</a></p>
+</blockquote>
+<h2 id="浏览器访问网站过程"><a href="#浏览器访问网站过程" class="headerlink" title="浏览器访问网站过程"></a>浏览器访问网站过程</h2><ol>
+<li><p>在浏览器地址栏中输入网址。<br><img src="imgs/taobao_url.png" alt="淘宝网址"></p>
+<ol>
+<li><p>浏览器通过用户在地址栏中输入的URL构建HTTP请求报文。</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">GET</span> <span class="string">/</span> HTTP/1.1</div><div class="line"><span class="attribute">Host</span>: www.taobao.com</div><div class="line"><span class="attribute">Connection</span>: keep-alive</div><div class="line"><span class="attribute">Upgrade-Insecure-Requests</span>: 1</div><div class="line"><span class="attribute">User-Agent</span>: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36</div><div class="line"><span class="attribute">Accept</span>: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</div><div class="line"><span class="attribute">Accept-Encoding</span>: gzip, deflate, sdch, br</div><div class="line"><span class="attribute">Accept-Language</span>: zh-CN,zh;q=0.8,en;q=0.6</div><div class="line"><span class="attribute">Cookie</span>: l=Ag0NWp9E8X4hgaGEtIBhOmKxnSOH6kG8; isg=AkZGLTL-Yr9tHDZbgd5bsn4Rlzwg5IphaK-1BzBvMmlEM-ZNmDfacSyDfdgF; thw=cn</div></pre></td></tr></table></figure>
+</li>
+<li><p>浏览器发起DNS解析请求，将域名转换为IP地址。<br><img src="imgs/taobao_ip.png" alt="淘宝网址"></p>
+<ol>
+<li>浏览器将请求报文发送给服务器。</li>
+<li>服务器接收请求报文，并解析。</li>
+<li><p>服务器处理用户请求，并将处理结果封装成HTTP响应报文。</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">HTTP/1.1 <span class="number">200</span> OK</div><div class="line"><span class="attribute">Server</span>: Tengine</div><div class="line"><span class="attribute">Date</span>: Thu, 13 Apr 2017 02:24:25 GMT</div><div class="line"><span class="attribute">Content-Type</span>: text/html; charset=utf-8</div><div class="line"><span class="attribute">Transfer-Encoding</span>: chunked</div><div class="line"><span class="attribute">Connection</span>: keep-alive</div><div class="line"><span class="attribute">Vary</span>: Accept-Encoding</div><div class="line"><span class="attribute">Vary</span>: Ali-Detector-Type, X-CIP-PT</div><div class="line"><span class="attribute">Cache-Control</span>: max-age=0, s-maxage=300</div><div class="line"><span class="attribute">Via</span>: cache8.l2cm10-1[172,200-0,C], cache13.l2cm10-1[122,0], cache3.cn206[0,200-0,H], cache6.cn206[0,0]</div><div class="line"><span class="attribute">Age</span>: 293</div><div class="line"><span class="attribute">X-Cache</span>: HIT TCP_MEM_HIT dirn:-2:-2</div><div class="line"><span class="attribute">X-Swift-SaveTime</span>: Thu, 13 Apr 2017 02:19:32 GMT</div><div class="line"><span class="attribute">X-Swift-CacheTime</span>: 300</div><div class="line"><span class="attribute">Timing-Allow-Origin</span>: *</div><div class="line"><span class="attribute">EagleId</span>: 9903e7e514920502659594264e</div><div class="line"><span class="attribute">Strict-Transport-Security</span>: max-age=31536000</div><div class="line"><span class="attribute">Content-Encoding</span>: gzip</div><div class="line"></div><div class="line"><span class="xml"><span class="meta">&lt;!DOCTYPE html&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh-CN"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge,chrome=1"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"renderer"</span> <span class="attr">content</span>=<span class="string">"webkit"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>淘宝网 - 淘！我喜欢<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"spm-id"</span> <span class="attr">content</span>=<span class="string">"a21bo"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"description"</span> <span class="attr">content</span>=<span class="string">"淘宝网 - 亚洲较大的网上交易平台，提供各类服饰、美容、家居、数码、话费/点卡充值… 数亿优质商品，同时提供担保交易(先收货后付款)等安全交易保障服务，并由商家提供退货承诺、破损补寄等消费者保障服务，让你安心享受网上购物乐趣！"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"aplus-xplug"</span> <span class="attr">content</span>=<span class="string">"NONE"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"keyword"</span> <span class="attr">content</span>=<span class="string">"淘宝,掏宝,网上购物,C2C,在线交易,交易市场,网上交易,交易市场,网上买,网上卖,购物网站,团购,网上贸易,安全购物,电子商务,放心买,供应,买卖信息,网店,一口价,拍卖,网上开店,网络购物,打折,免费开店,网购,频道,店铺"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">......</div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>服务器将HTTP响应报文发送给浏览器。</p>
+</li>
+<li>浏览器接收服务器响应的HTTP报文，并解析。</li>
+<li>浏览器解析HTML页面并展示，在解析HTML页面时遇到新的资源需要再次发起请求。</li>
+<li>最终浏览器展示出了页面</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<pre><code>&gt; HTTP请求报文和响应报文格式
+&gt; ![http请求报文和响应报文](imgs/HTTPMsgStructure2.png)
+
+
+
+
+# 四、Web开发本质
+1. 请求，客户端发起请求。
+2. 处理，服务器处理请求。
+3. 响应，服务器将处理结果发送给客户端
+4. 服务器响应完毕后，客户端继续处理：
+   - 浏览器：解析服务器返回的数据
+      - iOS、Android 客户端，解析服务器返回的数据，并且通过iOS或Android的UI技术实现界面的展示功能
+
+  &gt; 关于C/S（Client/Server） 和 B/S（Browser/Server）
+  &gt; ![Client / Server](imgs/client-server.png)
+
+
+
+
+  # 五、Node.js介绍
+  ## 1、什么是Node.js?
+  - Node.js是一个开发平台，就像Java开发平台、.Net开发平台、PHP开发平台、Apple开发平台一样`开发平台：有对应的编程语言、有语言运行时、有能实现特定功能的API（SDK：Software Development Kit）`
+  - 在这个平台开发所使用的语言是JavaScript语言
+  - 在这个开发平台下可以开发控制台程序（CLI）、桌面程序GUI（参见atom编辑器）、Web程序
+  - Node.js设计主要是为了开发网络应用程序
+  - Node.js底层是通过C/C++语言实现的
+  - Node.js内置部分API，通过NPM可以使用更多第三方功能模块
+  - 官方解释如下：
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">1、Node.js® is a JavaScript runtime built on Chrome&apos;s V8 JavaScript engine.</div><div class="line">2、Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. </div><div class="line">3、Node.js&apos; package ecosystem, npm, is the largest ecosystem of open source libraries in the world.</div><div class="line">4、Node is designed to build scalable network applications. </div><div class="line">5、Almost no function in Node directly performs I/O, so the process never blocks. </div><div class="line">6、Node is designed without threads(单线程的), doesn&apos;t mean you cannot take advantage of multiple cores in your environment. Child processes（子进程） can be spawned by using our child_process.fork() API.</div></pre></td></tr></table></figure>
+</code></pre><p> <img src="imgs/node-modules.png" alt="Node.js内置模块"></p>
+<h2 id="4、Node-js相关网站介绍"><a href="#4、Node-js相关网站介绍" class="headerlink" title="4、Node.js相关网站介绍"></a>4、Node.js相关网站介绍</h2><ul>
+<li>Node.js官网：<ul>
+<li><a href="https://nodejs.org/zh-cn/" target="_blank" rel="external">https://nodejs.org/zh-cn/</a></li>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="external">https://nodejs.org/en/</a></li>
+</ul>
+</li>
+<li>API文档：<ul>
+<li><a href="https://nodejs.org/dist/latest-v6.x/docs/api/" target="_blank" rel="external">https://nodejs.org/dist/latest-v6.x/docs/api/</a></li>
+<li><a href="http://nodejs.cn/api/" target="_blank" rel="external">http://nodejs.cn/api/</a></li>
+</ul>
+</li>
+<li>Node.js学习网站<ul>
+<li><a href="https://cnodejs.org/" target="_blank" rel="external">https://cnodejs.org/</a> 点击里面的<strong>“精华”</strong>帖子 和 <strong>“新手入门”</strong></li>
+<li><a href="http://www.runoob.com/nodejs/nodejs-tutorial.html" target="_blank" rel="external">http://www.runoob.com/nodejs/nodejs-tutorial.html</a></li>
+</ul>
+</li>
+<li>HTML、CSS、JavaScript参考文档（MDN）：<a href="https://developer.mozilla.org/en-US/" target="_blank" rel="external">https://developer.mozilla.org/en-US/</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/20/gulp/" rel="prev" title="gulp">
+                gulp <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="LL" />
+          <p class="site-author-name" itemprop="name">LL</p>
+           
+              <p class="site-description motion-element" itemprop="description">learn a little every day</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/LLfamilly" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/your-user-name" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://18226961031@163.com" target="_blank" title="Email">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Email
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#三、浏览器工作原理"><span class="nav-number">1.</span> <span class="nav-text">三、浏览器工作原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器的组成"><span class="nav-number">1.1.</span> <span class="nav-text">浏览器的组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主流渲染引擎介绍"><span class="nav-number">1.2.</span> <span class="nav-text">主流渲染引擎介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器访问网站过程"><span class="nav-number">1.3.</span> <span class="nav-text">浏览器访问网站过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、Node-js相关网站介绍"><span class="nav-number">1.4.</span> <span class="nav-text">4、Node.js相关网站介绍</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">LL</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three.min.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+    
+
+   
+        <!-- UY BEGIN -->
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+        <!-- UY END -->
+    
+  
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
