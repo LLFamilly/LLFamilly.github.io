@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="Canvas的简介 canvas是html5中新增的标签 canvas默认的宽高是300 * 150 设置canvas宽高需要使用属性width和height，如果使用了css样式，就会拉伸 canvas因为是在html5中新增的内容，所以并不是所有浏览器都支持（不支持的浏览器中会把canvas解析成div，里面的内容会显示出来） canvas的兼容性很好，在所有支持canvas的浏览器中，使用方">
+<meta name="description" content="learn a little every day">
 <meta name="keywords">
 <meta property="og:type" content="article">
-<meta property="og:title" content="angular">
-<meta property="og:url" content="http://LLFamilly.github.io/2017/04/17/angular/index.html">
+<meta property="og:title" content="nodeJS">
+<meta property="og:url" content="http://LLFamilly.github.io/2017/04/21/nodeJS/index.html">
 <meta property="og:site_name" content="MyBlog">
-<meta property="og:description" content="Canvas的简介 canvas是html5中新增的标签 canvas默认的宽高是300 * 150 设置canvas宽高需要使用属性width和height，如果使用了css样式，就会拉伸 canvas因为是在html5中新增的内容，所以并不是所有浏览器都支持（不支持的浏览器中会把canvas解析成div，里面的内容会显示出来） canvas的兼容性很好，在所有支持canvas的浏览器中，使用方">
-<meta property="og:updated_time" content="2017-04-17T14:04:28.052Z">
+<meta property="og:description" content="learn a little every day">
+<meta property="og:updated_time" content="2017-04-21T09:50:52.793Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="angular">
-<meta name="twitter:description" content="Canvas的简介 canvas是html5中新增的标签 canvas默认的宽高是300 * 150 设置canvas宽高需要使用属性width和height，如果使用了css样式，就会拉伸 canvas因为是在html5中新增的内容，所以并不是所有浏览器都支持（不支持的浏览器中会把canvas解析成div，里面的内容会显示出来） canvas的兼容性很好，在所有支持canvas的浏览器中，使用方">
+<meta name="twitter:title" content="nodeJS">
+<meta name="twitter:description" content="learn a little every day">
 
 
 
@@ -125,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://LLFamilly.github.io/2017/04/17/angular/"/>
+  <link rel="canonical" href="http://LLFamilly.github.io/2017/04/21/nodeJS/"/>
 
 
 
 
 
-  <title> angular | MyBlog </title>
+  <title> nodeJS | MyBlog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -280,7 +280,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://LLFamilly.github.io/2017/04/17/angular/">
+    <link itemprop="mainEntityOfPage" href="http://LLFamilly.github.io/2017/04/21/nodeJS/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LL">
@@ -301,7 +301,7 @@
             
             
               
-                angular
+                nodeJS
               
             
           </h1>
@@ -316,8 +316,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-17T21:53:58+08:00">
-                2017-04-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-21T17:50:52+08:00">
+                2017-04-21
               </time>
             
 
@@ -352,59 +352,7 @@
       
 
       
-        <h2 id="Canvas的简介"><a href="#Canvas的简介" class="headerlink" title="Canvas的简介"></a>Canvas的简介</h2><ol>
-<li>canvas是html5中新增的标签</li>
-<li>canvas默认的宽高是300 * 150</li>
-<li>设置canvas宽高需要使用属性width和height，如果使用了css样式，就会拉伸</li>
-<li>canvas因为是在html5中新增的内容，所以并不是所有浏览器都支持（不支持的浏览器中会把canvas解析成div，里面的内容会显示出来）</li>
-<li>canvas的兼容性很好，在所有支持canvas的浏览器中，使用方式都是一致的</li>
-<li>canvas本身不具备画图的能力，需要使用js代码获取画图工具，进行绘图操作</li>
-<li>一个页面中可以有多个画布，但是每个画布都拥有自己的画图工具</li>
-</ol>
-<h2 id="Canvas的基本使用"><a href="#Canvas的基本使用" class="headerlink" title="Canvas的基本使用"></a>Canvas的基本使用</h2><ol>
-<li>书写canvas标签</li>
-<li>获取canvas标签对象</li>
-<li>通过canvas标签对象获取绘图上下文   cas.getContext(“2d”)</li>
-<li>设置绘图起点   ctx.moveTo(x, y)</li>
-<li>设置画的终点  ctx.lineTo(x, y)</li>
-<li>描边           ctx.stroke()</li>
-</ol>
-<h2 id="Canvas的方法总结"><a href="#Canvas的方法总结" class="headerlink" title="Canvas的方法总结"></a>Canvas的方法总结</h2><table>
-<thead>
-<tr>
-<th>名称</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>canvas对象.getContext()</td>
-<td>获取绘图上下文的，可以传一个参数，”2d”,或者”webgl”</td>
-</tr>
-<tr>
-<td>绘图工具.moveTo()</td>
-<td>设置绘图起点，有两个参数，x,y 表示一个坐标</td>
-</tr>
-<tr>
-<td>绘图工具.lineTo()</td>
-<td>设置绘图终点，有两个参数，x,y 表示一个坐标</td>
-</tr>
-<tr>
-<td>绘图工具.stroke()</td>
-<td>对当前路径中绘制的所有内容描边</td>
-</tr>
-<tr>
-<td>绘图工具.fill()</td>
-<td>对当前路径中绘制的所有内容填充</td>
-</tr>
-<tr>
-<td>绘图工具.closePath()</td>
-<td>闭合路径，就是将当前的点和上一次moveTo的点连接起来</td>
-<td>绘图工具.</td>
-</tr>
-</tbody>
-</table>
-
+        
       
     </div>
 
@@ -440,18 +388,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/18/angular总结/" rel="next" title="angular总结">
-                <i class="fa fa-chevron-left"></i> angular总结
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/16/hello/" rel="prev" title="myBlog">
-                myBlog <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/20/gulp/" rel="prev" title="gulp">
+                gulp <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -499,17 +443,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -609,22 +544,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Canvas的简介"><span class="nav-number">1.</span> <span class="nav-text">Canvas的简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Canvas的基本使用"><span class="nav-number">2.</span> <span class="nav-text">Canvas的基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Canvas的方法总结"><span class="nav-number">3.</span> <span class="nav-text">Canvas的方法总结</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
