@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="node1," />
 
 
 
@@ -87,15 +87,22 @@
 
 
 
-<meta name="description" content="learn a little every day">
-<meta property="og:type" content="website">
-<meta property="og:title" content="MyBlog">
-<meta property="og:url" content="http://LLFamilly.github.io/tags/node2/index.html">
+<meta name="description" content="3、渲染引擎工作原理  4、WebKit工作原理（Chrome、Safari、Opera）  5、Gecko工作原理（FireFox） 6、浏览器reflow、layout过程：https://www.youtube.com/watch?v=ZTnIxIA5KGw  浏览器访问网站过程 在浏览器地址栏中输入网址。     浏览器通过用户在地址栏中输入的URL构建HTTP请求报文。 1234567">
+<meta name="keywords" content="node1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node2">
+<meta property="og:url" content="http://LLFamilly.github.io/2017/04/21/node2/index.html">
 <meta property="og:site_name" content="MyBlog">
-<meta property="og:description" content="learn a little every day">
+<meta property="og:description" content="3、渲染引擎工作原理  4、WebKit工作原理（Chrome、Safari、Opera）  5、Gecko工作原理（FireFox） 6、浏览器reflow、layout过程：https://www.youtube.com/watch?v=ZTnIxIA5KGw  浏览器访问网站过程 在浏览器地址栏中输入网址。     浏览器通过用户在地址栏中输入的URL构建HTTP请求报文。 1234567">
+<meta property="og:image" content="http://llfamilly.github.io/imgs/flow.png">
+<meta property="og:image" content="http://llfamilly.github.io/imgs/webkitflow.png">
+<meta property="og:image" content="http://llfamilly.github.io/imgs/gecko.jpg">
+<meta property="og:image" content="http://llfamilly.github.io/imgs/taobao_url.png">
+<meta property="og:updated_time" content="2017-04-22T08:30:29.483Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MyBlog">
-<meta name="twitter:description" content="learn a little every day">
+<meta name="twitter:title" content="node2">
+<meta name="twitter:description" content="3、渲染引擎工作原理  4、WebKit工作原理（Chrome、Safari、Opera）  5、Gecko工作原理（FireFox） 6、浏览器reflow、layout过程：https://www.youtube.com/watch?v=ZTnIxIA5KGw  浏览器访问网站过程 在浏览器地址栏中输入网址。     浏览器通过用户在地址栏中输入的URL构建HTTP请求报文。 1234567">
+<meta name="twitter:image" content="http://llfamilly.github.io/imgs/flow.png">
 
 
 
@@ -123,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://LLFamilly.github.io/tags/node2/"/>
+  <link rel="canonical" href="http://LLFamilly.github.io/2017/04/21/node2/"/>
 
 
 
 
 
-  <title> Tag: node2 | MyBlog </title>
+  <title> node2 | MyBlog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -154,7 +161,7 @@
     
   
 
-  <div class="container sidebar-position-right  ">
+  <div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -268,46 +275,171 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        node2
-        <small>Tag</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://LLFamilly.github.io/2017/04/21/node2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LL">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MyBlog">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                node2
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-21T16:02:17+08:00">
+                2017-04-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <blockquote>
+<p>3、<strong>渲染引擎工作原理</strong><br><img src="/imgs/flow.png" alt="渲染引擎工作原理"></p>
+<p> 4、<strong>WebKit工作原理（Chrome、Safari、Opera）</strong><br><img src="/imgs/webkitflow.png" alt="Blink渲染引擎工作原理"></p>
+<p> 5、<strong>Gecko工作原理（FireFox）</strong><br><img src="/imgs/gecko.jpg" alt="Gecko渲染引擎工作原理"></p>
+<p>6、浏览器reflow、layout过程：<a href="https://www.youtube.com/watch?v=ZTnIxIA5KGw" target="_blank" rel="external">https://www.youtube.com/watch?v=ZTnIxIA5KGw</a></p>
+</blockquote>
+<h2 id="浏览器访问网站过程"><a href="#浏览器访问网站过程" class="headerlink" title="浏览器访问网站过程"></a>浏览器访问网站过程</h2><ol>
+<li><p>在浏览器地址栏中输入网址。</p>
+<blockquote>
+<p><img src="/imgs/taobao_url.png" alt="淘宝网址"></p>
+</blockquote>
+</li>
+<li><p>浏览器通过用户在地址栏中输入的URL构建HTTP请求报文。</p>
+<figure class="highlight http"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">GET</span> <span class="string">/</span> HTTP/1.1</div><div class="line"><span class="attribute">Host</span>: www.taobao.com</div><div class="line"><span class="attribute">Connection</span>: keep-alive</div><div class="line"><span class="attribute">Upgrade-Insecure-Requests</span>: 1</div><div class="line"><span class="attribute">User-Agent</span>: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36</div><div class="line"><span class="attribute">Accept</span>: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</div><div class="line"><span class="attribute">Accept-Encoding</span>: gzip, deflate, sdch, br</div><div class="line"><span class="attribute">Accept-Language</span>: zh-CN,zh;q=0.8,en;q=0.6</div><div class="line"><span class="attribute">Cookie</span>: l=Ag0NWp9E8X4hgaGEtIBhOmKxnSOH6kG8; isg=AkZGLTL-Yr9tHDZbgd5bsn4Rlzwg5IphaK-1BzBvMmlEM-ZNmDfacSyDfdgF; thw=cn</div></pre></td></tr></table></figure>
+</li>
+</ol>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/04/22/node2/" itemprop="url">
-              
-                <span itemprop="name">node2</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-22T16:02:17+08:00"
-              content="2017-04-22" >
-          04-22
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/node1/" rel="tag"># node1</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/20/gulp/" rel="prev" title="gulp">
+                gulp <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -315,6 +447,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -334,8 +470,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -372,7 +517,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -435,6 +580,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器访问网站过程"><span class="nav-number">1.</span> <span class="nav-text">浏览器访问网站过程</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -558,6 +719,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
@@ -589,6 +754,10 @@
     
 
    
+        <!-- UY BEGIN -->
+        <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+        <!-- UY END -->
+    
   
 
 
