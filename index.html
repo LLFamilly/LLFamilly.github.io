@@ -280,6 +280,429 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://LLFamilly.github.io/2017/04/26/express/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LL">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MyBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/26/express/" itemprop="url">
+                  express
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-26T14:32:09+08:00">
+                2017-04-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="express-介绍"><a href="#express-介绍" class="headerlink" title="express 介绍"></a>express 介绍</h1><p><img src="/imgs/shui.jpg" alt="photo"></p>
+<ul>
+<li><p>什么是 express ？</p>
+<ul>
+<li>基于 Node.js 平台开发的 “web 开发框架””</li>
+<li>express的作用：它提供一系列强大的特性，帮助你创建各种 Web 和移动设备应用。</li>
+<li>express 同时也是 Node.js 的一个模块</li>
+</ul>
+</li>
+<li><p>为什么学习 express 框架？</p>
+<ul>
+<li>为了让我们基于 Node.js 开发web应用程序更高效。</li>
+</ul>
+</li>
+<li><p>express 官方网站</p>
+<ul>
+<li><a href="http://expressjs.com/" target="_blank" rel="external">http://expressjs.com/</a></li>
+<li><a href="http://www.expressjs.com.cn/" target="_blank" rel="external">http://www.expressjs.com.cn/</a></li>
+</ul>
+</li>
+<li><p>express 网站如何查阅？</p>
+<ul>
+<li>带领同学们一起看一下</li>
+</ul>
+</li>
+</ul>
+<p>4、express 基本使用</p>
+<ul>
+<li><p>安装 express</p>
+<ul>
+<li>npm 搜索，安装。按照文档一步一步进行<ol>
+<li>创建 package.json文件</li>
+<li>安装 express 模块：<code>npm install express --save</code></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>演示 Hello World 案例</p>
+<ul>
+<li>在 express 中，request 对象 和 response 对象一样使用，同时这两个对象还额外添加了其他的好用功能</li>
+<li>res.send() 是 res.end()的扩展</li>
+<li>步骤总结：<br>1、加载 express 模块<br>2、创建 express 实例（一般叫 app ）<br>3、设计路由<br>4、启动监听服务</li>
+</ul>
+</li>
+<li><p>补充知识：</p>
+<ul>
+<li>路由：请求路径（URL） + 请求方法（post、get、……）</li>
+<li>http 请求方法介绍：<a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods" target="_blank" rel="external">https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>使用 express 框架模拟 Apache 服务器处理静态资源</p>
+<ul>
+<li><p>主要使用到的方法<code>express.static(&#39;public&#39;)</code></p>
+<ul>
+<li><code>express.static(&#39;public&#39;)</code>的返回值就是一个函数，这个函数的作用就是根据请求，读取静态资源文件并响应给用户</li>
+<li>注意：static() 方法参数路径要写 绝对路径，不要写相对路径。相对路径还是相对执行node命令的路径</li>
+</ul>
+</li>
+<li><p>主要使用到的方法 <code>app.use()</code></p>
+<ul>
+<li>use()方法的参数1表示”虚拟路径”，参数2表示要开放的静态资源目录</li>
+</ul>
+</li>
+<li><p>如何向客户端发送单个静态文件</p>
+<ul>
+<li>res.sendFile() 方法</li>
+</ul>
+</li>
+<li><p>托管静态资源时的两个注意点：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 问题一、</span></div><div class="line">app.use(express.static(<span class="string">'./public'</span>));</div><div class="line">app.use(express.static(<span class="string">'./file'</span>));</div><div class="line"></div><div class="line"> <span class="comment">// 问题二、</span></div><div class="line">app.use(<span class="string">'/aaa'</span>, express.static(<span class="string">'./public'</span>));</div><div class="line">app.use(<span class="string">'/bbb'</span>, express.static(<span class="string">'./public'</span>));</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p>5、带同学们看一下 express 文档中关于各种设置路由的方法</p>
+<p>6、介绍一下 express 中的中间件</p>
+<ul>
+<li><p>中间件（Middleware） 是一个函数，它可以访问请求对象（request object (req)）, 响应对象（response object (res)）, 和 web 应用中处于请求-响应循环流程中的中间件，一般被命名为 next 的变量。</p>
+</li>
+<li><p>常规中间件（应用级中间件）的回调函数，一般有3个参数</p>
+<ul>
+<li>req, res, next</li>
+<li>其中next()是一个函数，通过这个函数把执行流程交给下一个中间件</li>
+</ul>
+</li>
+<li><p>可以挂在中间件的部分方法</p>
+<ul>
+<li>app.use()</li>
+<li>app.get()、app.post()、app.put()、app.delete()、…等各种请求方法</li>
+<li>注意：在挂载中间件时 next() 方法的重要性，不调用该方法无法执行到下一个中间件</li>
+</ul>
+</li>
+<li><p>中间件的应用场景</p>
+<ul>
+<li>利用中间件实现记录日志功能</li>
+<li>利用中间件模拟body-parser功能</li>
+</ul>
+</li>
+</ul>
+<p>7、介绍在 express 中如何使用模板引擎</p>
+<ul>
+<li>在 express 中, res对象是具有redner方法的，但是需要自己配置一个模板引擎</li>
+<li>在 express 中渲染单个文件，使用res.sendFile</li>
+<li>res.render()要在设置好模板引擎后再使用</li>
+</ul>
+<p>8、ejs模板引擎介绍</p>
+<ul>
+<li>打开 npm 搜索 ejs</li>
+<li>打开 GitHub 的 ejs 地址，查看如何使用</li>
+<li>ejs 模板引擎介绍</li>
+<li>ejs使用<ul>
+<li>ejs.render(str, data, options);</li>
+</ul>
+</li>
+</ul>
+<p>9、在 express 中配置使用 ejs 模板引擎</p>
+<ul>
+<li>npm install ejs –save</li>
+<li>通过 app.set(‘views’, ‘路径’);  和 app.set(‘view engine’, ‘模板引擎名称’);来配置模板引擎</li>
+<li>配置好后就可以通过 res.render(‘a.ejs’, {})来渲染模板了</li>
+</ul>
+<p>10、express 中的 request 对象的成员：<br><a href="http://www.expressjs.com.cn/4x/api.html#req" target="_blank" rel="external">http://www.expressjs.com.cn/4x/api.html#req</a></p>
+<p>11、express 中的 response 对象的成员：<br><a href="http://www.expressjs.com.cn/4x/api.html#res" target="_blank" rel="external">http://www.expressjs.com.cn/4x/api.html#res</a></p>
+<p>12、express 中的 ‘中间件’ 含义。</p>
+<p>13、模板引擎后缀替换</p>
+<ul>
+<li>app.engine(‘.ejs’, require(‘ejs’).renderFile)</li>
+<li>app.set(‘view engine’, ‘ejs’)</li>
+</ul>
+<p>14、通过使用 express 框架改造 Hacker News 网站</p>
+<ul>
+<li>把 resources、views、list.json拷贝到该目录下，其他暂时不需要了</li>
+<li>创建 app.js</li>
+<li>创建 package.json</li>
+<li>安装 express</li>
+<li>提取 router.js 模块</li>
+<li>拷贝 handler.js 模块</li>
+<li>handler.js 模块中获取 post 提交数据时，可以使用 body-parser 模块实现<ul>
+<li>npm 安装 body-parser</li>
+<li>在 express 中通过 app.use()挂载 body-parser 中间件，实现效果</li>
+</ul>
+</li>
+<li>在 express 中无需 url 模块，直接可以通过 req.query获取查询字符串对象</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://LLFamilly.github.io/2017/04/25/underscore/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LL">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MyBlog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/25/underscore/" itemprop="url">
+                  underscore
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-25T14:13:46+08:00">
+                2017-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/模块/" itemprop="url" rel="index">
+                    <span itemprop="name">模块</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="underscore模块介绍"><a href="#underscore模块介绍" class="headerlink" title="underscore模块介绍"></a>underscore模块介绍</h1><ul>
+<li>官方文档：<a href="http://underscorejs.org/" target="_blank" rel="external">http://underscorejs.org/</a></li>
+<li>中文文档：<a href="http://www.bootcss.com/p/underscore/" target="_blank" rel="external">http://www.bootcss.com/p/underscore/</a></li>
+</ul>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=5263584&auto=1&height=66"></iframe>
+
+<h2 id="参考描述"><a href="#参考描述" class="headerlink" title="参考描述"></a>参考描述</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">1、Underscore is a JavaScript library </div><div class="line">that provides a whole mess of useful functional programming helpers </div><div class="line">without extending any built-in objects. </div><div class="line"></div><div class="line">2、Underscore 是一个 JavaScript 工具库，它提供了一整套函数式编程的实用功能，</div><div class="line">但是没有扩展任何 JavaScript 内置对象。 他解决了这个问题：“如果我面对一个空白的 HTML 页面，</div><div class="line">并希望立即开始工作，我需要什么？” 他弥补了 jQuery 没有实现的功能，</div><div class="line">同时又是 Backbone 必不可少的部分。</div><div class="line"></div><div class="line">Underscore 提供了100多个函数，包括常用的：map、filter、invoke — 当然还有更多专业的辅助函数，</div><div class="line">如：函数绑定、JavaScript 模板功能、创建快速索引、强类型相等测试等等。</div></pre></td></tr></table></figure>
+<h2 id="模板语法介绍："><a href="#模板语法介绍：" class="headerlink" title="模板语法介绍："></a>模板语法介绍：</h2><ul>
+<li><code>&lt;%= %&gt;</code>, 中间写表达式</li>
+<li><code>&lt;%%&gt;</code>, 中间写语句</li>
+</ul>
+<h2 id="参考写法"><a href="#参考写法" class="headerlink" title="参考写法"></a>参考写法</h2><ul>
+<li>提示：underscore库建议使用’_’来命名对象，类似于jQuery使用$来命名</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// 案例一：</span></div><div class="line"><span class="keyword">var</span> html = <span class="string">'&lt;h1&gt;&lt;%= name %&gt;&lt;/h1&gt;'</span>;</div><div class="line"><span class="keyword">var</span> compiled = _.template(html);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(compiled);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 案例二：</span></div><div class="line"><span class="comment">// 构建模板字符串</span></div><div class="line"><span class="keyword">var</span> html = <span class="string">'&lt;%for (var i = 0; i &lt; 5; i++) &#123; %&gt;&lt;h1&gt;&lt;%= name %&gt;&lt;/h1&gt;&lt;% &#125;%&gt;'</span>;</div><div class="line"></div><div class="line"><span class="comment">// 编译模板</span></div><div class="line"><span class="keyword">var</span> compiled = _.template(html);</div><div class="line"></div><div class="line"><span class="comment">// 进行模板字符串替换</span></div><div class="line"><span class="keyword">var</span> result = compiled(&#123;<span class="attr">name</span>: <span class="string">'张三'</span>&#125;);</div><div class="line"></div><div class="line"><span class="comment">// 输出后的结果</span></div><div class="line"><span class="built_in">console</span>.log(result);</div></pre></td></tr></table></figure>
+<h2 id="underscore中-template-函数返回值其实就是一个函数："><a href="#underscore中-template-函数返回值其实就是一个函数：" class="headerlink" title="underscore中_.template()函数返回值其实就是一个函数："></a>underscore中_.template()函数返回值其实就是一个函数：</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span>(<span class="params">obj</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> __t;</div><div class="line">  <span class="keyword">var</span> __p = <span class="string">''</span>;</div><div class="line">  <span class="keyword">var</span> __j = <span class="built_in">Array</span>.prototype.join,print = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    __p += __j.call(<span class="built_in">arguments</span>,<span class="string">''</span>);</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  <span class="keyword">with</span>(obj||&#123;&#125;) &#123;</div><div class="line">    __p += <span class="string">'&lt;h1&gt;'</span> + ((__t = (name)) == <span class="literal">null</span> ? <span class="string">''</span> : __t) + <span class="string">'&lt;/h1&gt;'</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> __p;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://LLFamilly.github.io/2017/04/24/node-module/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -949,295 +1372,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://LLFamilly.github.io/2017/04/20/gulp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LL">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MyBlog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/20/gulp/" itemprop="url">
-                  gulp
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-20T20:02:57+08:00">
-                2017-04-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/命令/" itemprop="url" rel="index">
-                    <span itemprop="name">命令</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Gulp"><a href="#Gulp" class="headerlink" title="Gulp"></a>Gulp</h1><h2 id="1-1-全局安装"><a href="#1-1-全局安装" class="headerlink" title="1.1 全局安装"></a>1.1 全局安装</h2><p>gulp 执行命令npm install -g gulp</p>
-<h2 id="1-2-本地安装"><a href="#1-2-本地安装" class="headerlink" title="1.2 本地安装"></a>1.2 本地安装</h2><p>gulp进入项目根目录执行npm install gulp –save-dev（添加–save-dev会在package.json记录依赖关系）。</p>
-<h2 id="1-3-任务清单"><a href="#1-3-任务清单" class="headerlink" title="1.3 任务清单"></a>1.3 任务清单</h2><p>在项目根目录中创建gulpfile.js，gulp会参考这个配置文件执行构建任务</p>
-<h2 id="2-常用的gulp插件"><a href="#2-常用的gulp插件" class="headerlink" title="2 常用的gulp插件"></a>2 常用的gulp插件</h2><p>gulp-less 编译LESS文件<br>gulp-autoprefixer 添加CSS私有前缀<br>gulp-cssmin 压缩CSS<br>gulp-htmlmin 压缩HTML<br>gulp-imagemin 图片压缩<br>gulp-uglify 压缩Javascript<br>gulp-concat 合并<br>base的使用</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://LLFamilly.github.io/2017/04/19/angular5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LL">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="MyBlog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/19/angular5/" itemprop="url">
-                  angular5
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-19T21:58:21+08:00">
-                2017-04-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/javascript/" itemprop="url" rel="index">
-                    <span itemprop="name">javascript</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">1：angularjs 的执行流程:</div><div class="line">1: 浏览器打开html 页面，浏览器开始解析html</div><div class="line">2：浏览器开始解析html 变成dom 树</div><div class="line">3：解析的过程当中 碰到script 标签  src=&quot;libs/angular.js&quot;</div><div class="line">4: 执行angular.js 的内容，它会有一个事件 DomContentLoader</div><div class="line"> (</div><div class="line">     整个页面上面的dom 绘制完毕执行,但是不包含资源加载完毕</div><div class="line">      )</div><div class="line">      5:angularjs 监听DomContentLoader，当整个页面的dom 绘制完毕之后就会触发</div><div class="line">      6:angularjs 里面的代码开始启动.</div><div class="line">      7:查找模块之间的一个依赖关系</div><div class="line">      8:寻找一个ng-app 指令，寻找应用的边界.</div><div class="line">      9:初始化必要组件,把自己需要的组件进行初始化</div><div class="line">          $injector 注入  就可以给我自己编写的内容去注入依赖关系</div><div class="line">	      $compile  编译  编译我页面上面的一些指令 ，或者  &#123;&#123;&#125;&#125;</div><div class="line">	          $rootScope 根作用域  它可以往这个上面去绑定数据  ng-init=&quot;username=&apos;zhangsan&apos;&quot;</div><div class="line">		  10:解析angular 里面的配置，我们还可以进行配置的，运行一些我们自己的东西</div></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1287,7 +1421,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
