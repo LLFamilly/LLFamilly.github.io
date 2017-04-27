@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="express 介绍  什么是 express ？  基于 Node.js 平台开发的 “web 开发框架”” express的作用：它提供一系列强大的特性，帮助你创建各种 Web 和移动设备应用。 express 同时也是 Node.js 的一个模块   为什么学习 express 框架？  为了让我们基于 Node.js 开发web应用程序更高效。   express 官方网站  http:/">
+<meta name="description" content="express 介绍  什么是 express ？   基于 Node.js 平台开发的 “web 开发框架”” express的作用：它提供一系列强大的特性，帮助你创建各种 Web 和移动设备应用。 express 同时也是 Node.js 的一个模块   为什么学习 express 框架？   为了让我们基于 Node.js 开发web应用程序更高效。   express 官方网站   htt">
 <meta name="keywords" content="express">
 <meta property="og:type" content="article">
 <meta property="og:title" content="express">
 <meta property="og:url" content="http://LLFamilly.github.io/2017/04/26/express/index.html">
 <meta property="og:site_name" content="MyBlog">
-<meta property="og:description" content="express 介绍  什么是 express ？  基于 Node.js 平台开发的 “web 开发框架”” express的作用：它提供一系列强大的特性，帮助你创建各种 Web 和移动设备应用。 express 同时也是 Node.js 的一个模块   为什么学习 express 框架？  为了让我们基于 Node.js 开发web应用程序更高效。   express 官方网站  http:/">
+<meta property="og:description" content="express 介绍  什么是 express ？   基于 Node.js 平台开发的 “web 开发框架”” express的作用：它提供一系列强大的特性，帮助你创建各种 Web 和移动设备应用。 express 同时也是 Node.js 的一个模块   为什么学习 express 框架？   为了让我们基于 Node.js 开发web应用程序更高效。   express 官方网站   htt">
 <meta property="og:image" content="http://llfamilly.github.io/imgs/shui.jpg">
-<meta property="og:updated_time" content="2017-04-26T12:56:06.794Z">
+<meta property="og:updated_time" content="2017-04-26T13:16:30.825Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="express">
-<meta name="twitter:description" content="express 介绍  什么是 express ？  基于 Node.js 平台开发的 “web 开发框架”” express的作用：它提供一系列强大的特性，帮助你创建各种 Web 和移动设备应用。 express 同时也是 Node.js 的一个模块   为什么学习 express 框架？  为了让我们基于 Node.js 开发web应用程序更高效。   express 官方网站  http:/">
+<meta name="twitter:description" content="express 介绍  什么是 express ？   基于 Node.js 平台开发的 “web 开发框架”” express的作用：它提供一系列强大的特性，帮助你创建各种 Web 和移动设备应用。 express 同时也是 Node.js 的一个模块   为什么学习 express 框架？   为了让我们基于 Node.js 开发web应用程序更高效。   express 官方网站   htt">
 <meta name="twitter:image" content="http://llfamilly.github.io/imgs/shui.jpg">
 
 
@@ -356,52 +356,56 @@
       
         <h1 id="express-介绍"><a href="#express-介绍" class="headerlink" title="express 介绍"></a>express 介绍</h1><p><img src="/imgs/shui.jpg" alt="photo"></p>
 <ul>
-<li><p>什么是 express ？</p>
+<li>什么是 express ？</li>
+</ul>
 <ul>
 <li>基于 Node.js 平台开发的 “web 开发框架””</li>
 <li>express的作用：它提供一系列强大的特性，帮助你创建各种 Web 和移动设备应用。</li>
 <li>express 同时也是 Node.js 的一个模块</li>
 </ul>
-</li>
-<li><p>为什么学习 express 框架？</p>
+<ul>
+<li>为什么学习 express 框架？</li>
+</ul>
 <ul>
 <li>为了让我们基于 Node.js 开发web应用程序更高效。</li>
 </ul>
-</li>
-<li><p>express 官方网站</p>
+<ul>
+<li>express 官方网站</li>
+</ul>
 <ul>
 <li><a href="http://expressjs.com/" target="_blank" rel="external">http://expressjs.com/</a></li>
 <li><a href="http://www.expressjs.com.cn/" target="_blank" rel="external">http://www.expressjs.com.cn/</a></li>
 </ul>
-</li>
-<li><p>express 网站如何查阅？</p>
+<ul>
+<li>express 网站如何查阅？</li>
+</ul>
 <ul>
 <li>带领同学们一起看一下</li>
 </ul>
-</li>
-</ul>
 <p>4、express 基本使用</p>
 <ul>
-<li><p>安装 express</p>
+<li>安装 express</li>
+</ul>
 <ul>
-<li>npm 搜索，安装。按照文档一步一步进行<ol>
+<li>npm 搜索，安装。按照文档一步一步进行</li>
+</ul>
+<ol>
 <li>创建 package.json文件</li>
 <li>安装 express 模块：<code>npm install express --save</code></li>
 </ol>
-</li>
+<ul>
+<li>演示 Hello World 案例</li>
 </ul>
-</li>
-<li><p>演示 Hello World 案例</p>
 <ul>
 <li>在 express 中，request 对象 和 response 对象一样使用，同时这两个对象还额外添加了其他的好用功能</li>
 <li>res.send() 是 res.end()的扩展</li>
-<li>步骤总结：<br>1、加载 express 模块<br>2、创建 express 实例（一般叫 app ）<br>3、设计路由<br>4、启动监听服务</li>
-</ul>
-</li>
-<li><p>补充知识：</p>
+<li><p>步骤总结：<br>1、加载 express 模块<br>2、创建 express 实例（一般叫 app ）<br>3、设计路由<br>4、启动监听服务</p>
 <ul>
+<li>补充知识：<ul>
 <li>路由：请求路径（URL） + 请求方法（post、get、……）</li>
 <li>http 请求方法介绍：<a href="https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods" target="_blank" rel="external">https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol#Request_methods</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -542,6 +546,10 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/04/27/nodeJS5/" rel="next" title="nodeJS5">
+                <i class="fa fa-chevron-left"></i> nodeJS5
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
@@ -622,7 +630,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-count">12</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
